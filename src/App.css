@@ -37,3 +37,17 @@
     transform: rotate(360deg);
   }
 }
+
+.lightTheme {
+  background: #f1f1f1;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+  height: 100vh;
+}
+
+.darkTheme {
+  background: #333;
+  color: #f1f1f1;
+  transition: all 0.2s ease-in-out;
+  height: 100vh;
+}

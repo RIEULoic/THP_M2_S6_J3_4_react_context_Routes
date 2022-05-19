@@ -17,7 +17,6 @@ export default function Works() {
         <Link to="/works/solane" className="App-link" >Solane</Link>
         <Link to="/works/sedal" className="App-link" >Sedal</Link>
       </div>
-    
     </div>
   );
 };

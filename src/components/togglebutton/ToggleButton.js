@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import './ToggleButton.css';
-import { ThemeContext } from '../../context/ThemeContext';
+import ThemeContext from '../../context/ThemeContext';
 
 export default function ToggleButton() {
 
-const {toggleTheme, theme} = useContext(ThemeContext)
+const theme = useContext(ThemeContext);
+const mode = (theme.currentTheme === 'light') ? 'Darkmode OFF' : 'Darkmode On'
 
   return (
-    <div onClick={toggleTheme} className="myButton">
-
-    </div>
+    <button onClick={theme.toggleTheme} className="myButton">
+      {mode}
+    </button>
   )
 }
 

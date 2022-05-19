@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -6,14 +6,20 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Works from './pages/Works';
 import StudyCase from './components/StudyCase';
-import ThemeContextProvider from './context/ThemeContext';
+import ThemeContext from './context/ThemeContext';
 import ToggleButton from './components/togglebutton/ToggleButton';
 
 function App() {
+
+  const [currentTheme, setCurrentTheme] = useState(localStorage.selectTheme || 'light');
+
+  useEffect (() => {localStorage.setItem('selectTheme', currentTheme)}, [currentTheme]);
+
+
   return (
-    <div className="App">
-      <ThemeContextProvider>
-      
+   
+    <ThemeContext.Provider value={{currentTheme, toggleTheme: () => {currentTheme === "light" ? setCurrentTheme("dark") : setCurrentTheme("light")}}}>
+      <div className={ currentTheme === "light" ? "lightTheme" : "darkTheme"}>
         <Navbar />
         <ToggleButton />
         <Routes>
@@ -23,9 +29,9 @@ function App() {
             <Route path="/works/:bookSlug" element={<StudyCase />} />
           </Route>
         </Routes>
-        
-      </ThemeContextProvider>
-    </div>
+        </div>
+      </ThemeContext.Provider>
+    
   );
 }
 
