@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Works from './pages/Works';
+import StudyCase from './components/StudyCase';
+import ThemeContextProvider from './context/ThemeContext';
+import ToggleButton from './components/togglebutton/ToggleButton';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeContextProvider>
+      
+        <Navbar />
+        <ToggleButton />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/works" element={<Works />} >
+            <Route path="/works/:bookSlug" element={<StudyCase />} />
+          </Route>
+        </Routes>
+        
+      </ThemeContextProvider>
     </div>
   );
 }

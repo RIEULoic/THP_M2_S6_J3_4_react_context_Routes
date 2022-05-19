@@ -1,0 +1,6 @@
+.myButton {
+  color: rgb(45, 44, 18); font-size: 15px; line-height: 15px; padding: 7px; border-radius: 11px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgba(0, 0, 0, 0) -5px 3px 13px 0px; border: 2px solid rgb(28, 110, 164); display: inline-block; cursor: pointer;}
+  .myButton:hover {
+  background: #1C6EA4; }
+  .myButton:active {
+  background: #144E75; }
